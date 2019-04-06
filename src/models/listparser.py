@@ -1,11 +1,9 @@
 import xlrd
-
-from gcd import get_cell_data
-
+from src.common.datacleaner import DataCleaner
+from collections import OrderedDict
 
 class ListParser(object):
-
-    def __init__(self,workbook, sheet, start_row, start_col=2, n_rows=None, n_cols=None):
+    def __init__(self, workbook, sheet, start_row, start_col=2, n_rows=None, n_cols=None):
         self.workbook = workbook
         self.sheet = sheet
         self.start_row = start_row
@@ -14,21 +12,6 @@ class ListParser(object):
         self.n_cols = n_cols
 
         self.headers = []
-
-
-    def format_data(self, data):
-        '''
-            :param r: row
-            :param c: column
-            :return: the data, appropriately modified, for each cell
-            '''
-
-        val = data.value
-        type = data.ctype
-        if type == 3:  # implies that the data is a date
-            val = xlrd.xldate.xldate_as_datetime(val, self.workbook.datemode)
-            val = val.strftime('%Y-%m-%d')  # change it to the required format
-        return val
 
     # get the headers in the sheet
     def get_headers(self):
@@ -54,18 +37,39 @@ class ListParser(object):
         headers = self.headers
 
         # iterate over all the data in the tabular part of the sheet
-        for r in range(row, self.sheet.nrows):
+        # row +1 as the first row is the header row
+        for r in range(row+1, self.sheet.nrows):
             index = col - 2  # as the table is shifted 2 columns to the right
-            eachitem = {}
-            for c in range(col, col + MAX_COL - 1):
+            eachitem = OrderedDict()
+            for c in range(col, col + MAX_COL):
                 data = self.sheet.cell(r, c)
-                val = self.format_data(data)
+
+                # clean the data into proper format
+                val = DataCleaner.format_data(data, self.workbook)
+
                 # get the header
                 c_header = headers[index]
 
-                eachitem[c_header] = val
+                # if the values are not empty, add them to the dictionary
+                if val is not u'' and c_header is not u'':
+                    eachitem[c_header] = val
 
                 index = index + 1
+            if len(eachitem) != 0:
+                items_list.append(eachitem)
+        return items_list
 
-            items_list.append(eachitem)
 
+if __name__ == '__main__':
+    # standalone unit test for the listparser module
+    # PLEASE IGNORE
+
+    workbook = xlrd.open_workbook('../../ToParse_Python.xlsx')
+    sheet = workbook.sheet_by_index(0)      # getting the first sheet
+    l = ListParser(workbook, sheet, start_row=8)        # 8 only for testing
+    headers = l.get_headers()
+
+    # headers = ['LineNumber', 'PartNumber', 'Description', 'Item Type', 'Price']
+    # for our case
+    items = l.get_items_in_list()
+    print items
