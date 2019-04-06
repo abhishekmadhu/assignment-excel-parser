@@ -2,12 +2,13 @@ import xlrd
 import re
 from listparser import ListParser
 from src.common.datacleaner import DataCleaner
-
+from src.models.errors import DataNotBesideLabelError
 
 class ScatteredData(object):
-    def __init__(self, workbook, sheet):
+    def __init__(self, workbook, sheet, strict):
         self.workbook = workbook
         self.sheet = sheet
+        self.strict = strict
         self.scattered_dict = {}
 
 
@@ -29,7 +30,17 @@ class ScatteredData(object):
                     key = DataCleaner.format_data(key, self.workbook)
                     val = DataCleaner.format_data(val, self.workbook)
 
-                    self.scattered_dict[str(key)] = str(val)
+                    if val != '':
+                        self.scattered_dict[str(key)] = str(val)
+                    else:
+                        # handle the situation where the value is not located
+                        # to the right of the label
+
+                        # if strict mode is on
+                        if self.strict:
+                            raise DataNotBesideLabelError('Data is not beside the label! Pass "strict=False" to ignore this')
+
+
 
                 else:
                     # match name as a regexp
@@ -52,7 +63,7 @@ if __name__ == '__main__':
 
     workbook = xlrd.open_workbook('../../ToParse_Python.xlsx')
     sheet = workbook.sheet_by_index(0)  # getting the first sheet
-    s = ScatteredData(workbook, sheet)
+    s = ScatteredData(workbook, sheet, strict=False)
     scattered_dict = s.get_scattered_data()
     print scattered_dict
 

@@ -1,4 +1,5 @@
 import xlrd
+import re
 from src.common.datacleaner import DataCleaner
 from collections import OrderedDict
 
@@ -37,17 +38,24 @@ class ListParser(object):
         headers = self.headers
 
         # iterate over all the data in the tabular part of the sheet
-        # row +1 as the first row is the header row
+        # (row +1) as the first row is the header row
         for r in range(row+1, self.sheet.nrows):
-            index = col - 2  # as the table is shifted 2 columns to the right
+            index = col - self.start_col  # as the table is shifted those many columns to the right
             eachitem = OrderedDict()
             for c in range(col, col + MAX_COL):
                 data = self.sheet.cell(r, c)
 
                 # clean the data into proper format
                 val = DataCleaner.format_data(data, self.workbook)
+                print val
 
-                # get the header
+                # if val is atleast 10 dashes '----------', break
+                pattern = '----------'
+                if re.match(pattern=pattern, string=str(val)):
+                    print '10 or more dashes found. Exiting!'
+                    break
+
+                # get the header for that column
                 c_header = headers[index]
 
                 # if the values are not empty, add them to the dictionary
@@ -57,6 +65,7 @@ class ListParser(object):
                 index = index + 1
             if len(eachitem) != 0:
                 items_list.append(eachitem)
+
         return items_list
 
 
