@@ -4,13 +4,14 @@ from src.common.datacleaner import DataCleaner
 from collections import OrderedDict
 
 class ListParser(object):
-    def __init__(self, workbook, sheet, start_row, start_col=2, n_rows=None, n_cols=None):
+    def __init__(self, workbook, sheet, required_headers, start_row, start_col=2, n_rows=None, n_cols=None):
         self.workbook = workbook
         self.sheet = sheet
         self.start_row = start_row
         self.start_col = start_col
         self.n_rows = n_rows
         self.n_cols = n_cols
+        self.required_headers = required_headers
 
         self.headers = []
 
@@ -25,6 +26,12 @@ class ListParser(object):
 
         # return the headers for testing purposes
         return self.headers
+
+    def verify_headers(self, required_headers):
+        for rh in required_headers:
+            if rh not in self.headers:
+                print rh, ' column has not been found in the list. ' \
+                          'Please consult the administrator if you think it is present in the list.'
 
     def get_items_in_list(self):
         # initiate the column parsing procedure
@@ -47,7 +54,7 @@ class ListParser(object):
 
                 # clean the data into proper format
                 val = DataCleaner.format_data(data, self.workbook)
-                print val
+
 
                 # if val is atleast 10 dashes '----------', break
                 pattern = '----------'
