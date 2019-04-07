@@ -4,6 +4,7 @@ from listparser import ListParser
 from src.common.datacleaner import DataCleaner
 from src.models.errors import DataNotBesideLabelError
 
+
 class ScatteredData(object):
     def __init__(self, workbook, sheet, strict):
         self.workbook = workbook

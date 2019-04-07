@@ -15,16 +15,8 @@ class ListParser(object):
         self.headers = []
 
     # get the headers in the sheet
-    def get_headers(self):
-        for j in range(0, self.sheet.ncols):
-            x = self.sheet.cell(self.start_row, j)
-
-            # if the cell is not empty, add it to headers
-            if str(x.value) is not '':
-                self.headers.append(str(x.value))
-
-        # return the headers for testing purposes
-        return self.headers
+    def set_headers(self, headers):
+        self.headers = headers
 
     def get_items_in_list(self):
         # initiate the column parsing procedure
@@ -83,7 +75,7 @@ if __name__ == '__main__':
     workbook = xlrd.open_workbook('../../ToParse_Python.xlsx')
     sheet = workbook.sheet_by_index(0)      # getting the first sheet
     l = ListParser(workbook, sheet, start_row=8)        # 8 only for testing
-    headers = l.get_headers()
+    l.set_headers()
 
     # headers = ['LineNumber', 'PartNumber', 'Description', 'Item Type', 'Price']
     # for our case
