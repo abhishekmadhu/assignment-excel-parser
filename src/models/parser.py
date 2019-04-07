@@ -7,20 +7,16 @@ from src.models.scattered_data import ScatteredData
 
 
 class Parser(object):
-    def __init__(self, path_to_file, sheet_number, list_start_row, headers=None, strict=True):
+    def __init__(self, path_to_file, sheet_number, list_start_row, strict=True):
 
         self.path_to_file = path_to_file
         self.sheet_number = sheet_number
         self.list_start_row = list_start_row
         self.strict = strict
-        self.headers = headers
 
         self.workbook = xlrd.open_workbook(self.path_to_file)       # getting the workbook
         self.sheet = self.workbook.sheet_by_index(self.sheet_number)     # getting the sheet
 
-        # specified in the problem. A different getHeaders function is also there to gram self.headers
-        # if it is None
-        self.headers = ['LineNumber', 'PartNumber', 'Description', 'Price']
 
     def get_data(self):
         # initialising an ordered dict to store the final dictionary
@@ -34,7 +30,7 @@ class Parser(object):
 
 
         listparser = ListParser(workbook, sheet, start_row=self.list_start_row)
-        listparser.set_headers(self.headers)
+        headers = listparser.get_headers()
 
         # headers = ['LineNumber', 'PartNumber', 'Description', 'Item Type', 'Price']
 
@@ -50,6 +46,9 @@ class Parser(object):
 
 
 if __name__ == '__main__':
+    # unit test for the parser class
+    # Please ignore
+
     # the ToParse_python.xlsx is located one directory
     # above the current file in this system
     path_to_file = '../../ToParse_Python.xlsx'
