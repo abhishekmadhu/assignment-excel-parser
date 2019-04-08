@@ -8,12 +8,12 @@ from src.models.errors import DataNotBesideLabelError
 
 
 class ScatteredData(object):
-    def __init__(self, workbook, sheet, strict):
+    def __init__(self, workbook, sheet, keys_to_search, strict):
         self.workbook = workbook
         self.sheet = sheet
         self.strict = strict
 
-        self.keys_to_search = ['Quote Number', 'Date', 'Ship To', 'Ship From']
+        self.keys_to_search = keys_to_search
         self.scattered_dict = {}
 
 
@@ -84,7 +84,9 @@ if __name__ == '__main__':
 
     workbook = xlrd.open_workbook('../../ToParse_Python.xlsx')
     sheet = workbook.sheet_by_index(0)  # getting the first sheet
-    s = ScatteredData(workbook, sheet, strict=False)
+    keys_to_search = ['Quote Number', 'Date', 'Ship To', 'Ship From']
+    s = ScatteredData(workbook, sheet, keys_to_search=keys_to_search,
+                      strict=False)
     scattered_dict = s.get_scattered_data()
     s.are_all_keys_found()
 

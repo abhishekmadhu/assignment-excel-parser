@@ -130,10 +130,20 @@ if __name__ == '__main__':
     workbook = xlrd.open_workbook('../../ToParse_Python.xlsx')
     sheet = workbook.sheet_by_index(0)      # getting the first sheet
     required_headers = ['LineNumber', 'PartNumber', 'Description', 'Price']
-    l = ListParser(workbook, sheet, required_headers=required_headers)        # 8 only for testing
-    headers = l.get_headers()
+    # init a new listparser
+    listparser = ListParser(workbook, sheet, required_headers=required_headers)
+
+    # get the starting rows and cols of the list
+    list_start_row, list_start_col = listparser.get_start_row_col()
+
+    # get all the headers available in the sheet
+    found_headers = listparser.get_headers()
 
     # headers = ['LineNumber', 'PartNumber', 'Description', 'Item Type', 'Price']
-    # for our case
-    items = l.get_items_in_list()
+
+    # check if all the required headers have been found or not
+    listparser.verify_headers(required_headers)
+
+    # get the items for the 'Items:' key of the dict
+    items = listparser.get_items_in_list()
     print items

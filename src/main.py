@@ -13,12 +13,19 @@ if __name__ == '__main__':
     # "strictness" of the parser as parameter 'strict'
     # [Ignore Empty Labels: False]
 
+    # keys to be searched in the top portion (above the list)
+    keys_to_search = ['Quote Number', 'Date', 'Ship To', 'Ship From']
+
     # required headers are the column-names that we are to look for
     # (as in problem, others will be ignored)
+    # change this if you want to look for other headers.
+    # The headers in the sheet will be automatically parsed and extracted separately,
+    # and out of them, only these (the following) will be searched for
     required_headers = ['LineNumber', 'PartNumber', 'Description', 'Price']
 
     # create a parser
     p = Parser(path_to_file=path_to_file, sheet_number=0,
+               keys_to_search=keys_to_search,
                required_headers=required_headers,
                strict=False)
 

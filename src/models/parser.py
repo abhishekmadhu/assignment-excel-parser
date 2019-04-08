@@ -7,13 +7,15 @@ from src.models.scattered_data import ScatteredData
 
 
 class Parser(object):
-    def __init__(self, path_to_file, sheet_number, list_start_row=None, required_headers=None,strict=True):
+    def __init__(self, path_to_file, sheet_number, keys_to_search,
+                 list_start_row=None, required_headers=None,strict=True):
 
         self.path_to_file = path_to_file
         self.sheet_number = sheet_number
         self.list_start_row = list_start_row
         self.strict = strict
         self.required_headers = required_headers
+        self.keys_to_search = keys_to_search
 
         self.workbook = xlrd.open_workbook(self.path_to_file)           # getting the workbook
         self.sheet = self.workbook.sheet_by_index(self.sheet_number)    # getting the sheet
@@ -26,9 +28,10 @@ class Parser(object):
         sheet = workbook.sheet_by_index(0)  # getting the first sheet
 
         # init a ScatteredData object
-        s = ScatteredData(workbook, sheet, strict=self.strict)
+        s = ScatteredData(workbook, sheet, keys_to_search=self.keys_to_search,
+                          strict=self.strict)
 
-        # gets the scattered data in the sheet and
+        # gets the scattered data in the sheet andkeys_to_search = ['Quote Number', 'Date', 'Ship To', 'Ship From']
         # stores the data returned in a dictionary
         scattered_dict = s.get_scattered_data()
         s.are_all_keys_found()
@@ -75,8 +78,14 @@ if __name__ == '__main__':
     # "strictness" of the parser as parameter 'strict'
     # [Ignore Empty Labels: False]
 
+    keys_to_search = ['Quote Number', 'Date', 'Ship To', 'Ship From']
     required_headers = ['LineNumber', 'PartNumber', 'Description', 'Price']
-    p = Parser(path_to_file=path_to_file, sheet_number=0, required_headers=required_headers, strict=False)
+
+    # create a parser
+    p = Parser(path_to_file=path_to_file, sheet_number=0,
+               keys_to_search=keys_to_search,
+               required_headers=required_headers,
+               strict=False)
 
     data = p.get_data()
     print(data)
