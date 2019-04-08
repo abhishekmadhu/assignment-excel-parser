@@ -1,5 +1,5 @@
 from __future__ import print_function
-# for using print as a command, not as a command
+# for using print as a function, not as a command
 
 from models.parser import Parser
 
