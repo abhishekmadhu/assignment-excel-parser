@@ -2,7 +2,7 @@ import json
 from collections import OrderedDict
 import xlrd
 
-from src.models.listparser2 import ListParser
+from src.models.listparser import ListParser
 from src.models.scattered_data import ScatteredData
 
 
