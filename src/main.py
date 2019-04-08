@@ -5,18 +5,15 @@ from models.parser import Parser
 
 
 if __name__ == '__main__':
-    # unit test for the parser class
-    # Please ignore
-
     # the ToParse_python.xlsx is located one directory
     # above the current file in this system
     path_to_file = '../ToParse_Python.xlsx'
 
-    # unit test (specifying the starting row of the list) , and
+    # UNIT TEST (specifying the starting row of the list) , and
     # "strictness" of the parser as parameter 'strict'
     # [Ignore Empty Labels: False]
 
-    # required headers are the columnnames that we are to look for
+    # required headers are the column-names that we are to look for
     # (as in problem, others will be ignored)
     required_headers = ['LineNumber', 'PartNumber', 'Description', 'Price']
 

@@ -24,13 +24,25 @@ class Parser(object):
 
         workbook = xlrd.open_workbook(self.path_to_file)
         sheet = workbook.sheet_by_index(0)  # getting the first sheet
+
+        # init a ScatteredData object
         s = ScatteredData(workbook, sheet, strict=self.strict)
+
+        # gets the scattered data in the sheet and
+        # stores the data returned in a dictionary
         scattered_dict = s.get_scattered_data()
+        s.are_all_keys_found()
+
+        # update the dictionary with the returned data by merging them
         mydict.update(scattered_dict)
 
-
+        # init a new listparser
         listparser = ListParser(workbook, sheet, required_headers=self.required_headers)
+
+        #get the starting rows and cols of the list
         list_start_row, list_start_col = listparser.get_start_row_col()
+
+        #get all the headers available in the sheet
         found_headers = listparser.get_headers()
 
         # headers = ['LineNumber', 'PartNumber', 'Description', 'Item Type', 'Price']
@@ -38,8 +50,10 @@ class Parser(object):
         # check if all the required headers have been found or not
         listparser.verify_headers(self.required_headers)
 
+        # get the items for the 'Items:' key of the dict
         items = listparser.get_items_in_list()
 
+        # add it to the list if there is atleast one item in the list, else add error msg
         mydict['Items'] = items if items is not None else 'No items detected in this sheet'
 
         # format the dictionary in the required manner

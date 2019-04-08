@@ -6,7 +6,8 @@ from collections import OrderedDict
 
 
 class ListParser(object):
-    def __init__(self, workbook, sheet, required_headers, start_row=None, start_col=None, n_rows=None, n_cols=None):
+    def __init__(self, workbook, sheet, required_headers, start_row=None,
+                 start_col=None, n_rows=None, n_cols=None):
         self.workbook = workbook
         self.sheet = sheet
         self.start_row = start_row
@@ -38,7 +39,9 @@ class ListParser(object):
     def get_start_row_col(self):
         for r in range(self.sheet.nrows):
             for c in range(self.sheet.ncols):
-                # print self.sheet.cell(r, c).value
+
+                # A bold assumption that the first col of the list will always be 'LineNumber'
+                # change this later by passing it from the user
                 if self.sheet.cell(r, c).value == u'LineNumber':
                     # print 'Start of the List Found!', r, c
 
