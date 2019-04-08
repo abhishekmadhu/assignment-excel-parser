@@ -1,3 +1,4 @@
+from termcolor import colored
 import xlrd
 import re
 from src.common.datacleaner import DataCleaner
@@ -39,7 +40,7 @@ class ListParser(object):
             for c in range(self.sheet.ncols):
                 # print self.sheet.cell(r, c).value
                 if self.sheet.cell(r, c).value == u'LineNumber':
-                    print 'Start of the List Found!', r, c
+                    # print 'Start of the List Found!', r, c
 
                     # if the start_row or start_col has not been passed by user, set them
                     if self.start_row is None:
@@ -93,7 +94,7 @@ class ListParser(object):
                 # if val is atleast 10 dashes '----------', return the list and stop
                 pattern = '----------'
                 if re.match(pattern=pattern, string=str(val)):
-                    print '10 or more dashes found. Exiting!'
+                    print '\nTen or more consecutive dashes found. Exiting!'
                     return items_list
 
                 # get the header for that column
@@ -106,8 +107,10 @@ class ListParser(object):
                         eachitem[c_header] = val
 
                     else:
-                        print 'Warning: Empty value found at cell(', r, ',', c, ')! ' \
-                                'No entry for the', c_header, 'column!'
+                        print colored('Critical Error: ', 'red')
+                        print 'Empty value found at cell(', r, ',', c, ')! ' \
+                            'No entry for the', c_header, 'column!'
+
                         pass
 
                 index = index + 1
