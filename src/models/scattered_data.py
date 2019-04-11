@@ -2,7 +2,6 @@ import xlrd
 import re
 
 from termcolor import colored
-
 from src.common.datacleaner import DataCleaner
 from src.models.errors import DataNotBesideLabelError
 

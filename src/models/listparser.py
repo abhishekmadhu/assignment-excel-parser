@@ -1,9 +1,10 @@
-from termcolor import colored
 import xlrd
 import re
+
 from src.common.datacleaner import DataCleaner
 from collections import OrderedDict
 from src.models.errors import ListHeaderNotFoundError
+from termcolor import colored
 
 
 class ListParser(object):
