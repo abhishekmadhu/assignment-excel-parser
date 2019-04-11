@@ -3,11 +3,12 @@ import xlrd
 import re
 from src.common.datacleaner import DataCleaner
 from collections import OrderedDict
+from src.models.errors import ListHeaderNotFoundError
 
 
 class ListParser(object):
     def __init__(self, workbook, sheet, required_headers, start_row=None,
-                 start_col=None, n_rows=None, n_cols=None):
+                 start_col=None, n_rows=None, n_cols=None, strict=True):
         self.workbook = workbook
         self.sheet = sheet
         self.start_row = start_row
@@ -15,6 +16,7 @@ class ListParser(object):
         self.n_rows = n_rows
         self.n_cols = n_cols
         self.required_headers = required_headers
+        self.strict = strict
 
         self.headers = []
 
@@ -36,6 +38,9 @@ class ListParser(object):
                 print rh, ' column has not been found in the list. ' \
                           'Please consult the administrator if you think it is present in the list.'
                 print 'Did you spell it correctly (as in the sheet)?'
+
+                if self.strict:
+                    raise ListHeaderNotFoundError(rh + ' header not found!')
 
     def get_start_row_col(self):
         for r in range(self.sheet.nrows):
@@ -119,7 +124,6 @@ class ListParser(object):
                             print 'Empty value found at cell(', r, ',', c, ')! ' \
                                 'No entry for the', c_header, 'column!'
 
-
             if len(eachitem) != 0:
                 items_list.append(eachitem)
 
@@ -132,9 +136,9 @@ if __name__ == '__main__':
 
     workbook = xlrd.open_workbook('../../ToParse_Python.xlsx')
     sheet = workbook.sheet_by_index(0)      # getting the first sheet
-    required_headers = ['LineNumber', 'PartNumber', 'Description', 'Price']
+    required_headers = ['LineNumber', 'PartNumber', 'Description', 'Price', 'Name']
     # init a new listparser
-    listparser = ListParser(workbook, sheet, required_headers=required_headers)
+    listparser = ListParser(workbook, sheet, required_headers=required_headers, strict=False)
 
     # get the starting rows and cols of the list
     list_start_row, list_start_col = listparser.get_start_row_col()

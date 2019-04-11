@@ -8,7 +8,7 @@ from src.models.scattered_data import ScatteredData
 
 class Parser(object):
     def __init__(self, path_to_file, sheet_number, keys_to_search,
-                 list_start_row=None, required_headers=None,strict=True):
+                 list_start_row=None, required_headers=None, strict=True):
 
         self.path_to_file = path_to_file
         self.sheet_number = sheet_number
@@ -40,7 +40,7 @@ class Parser(object):
         mydict.update(scattered_dict)
 
         # init a new listparser
-        listparser = ListParser(workbook, sheet, required_headers=self.required_headers)
+        listparser = ListParser(workbook, sheet, required_headers=self.required_headers, strict=self.strict)
 
         #get the starting rows and cols of the list
         list_start_row, list_start_col = listparser.get_start_row_col()

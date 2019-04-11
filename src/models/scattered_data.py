@@ -8,7 +8,7 @@ from src.models.errors import DataNotBesideLabelError
 
 
 class ScatteredData(object):
-    def __init__(self, workbook, sheet, keys_to_search, strict):
+    def __init__(self, workbook, sheet, keys_to_search, strict=True):
         self.workbook = workbook
         self.sheet = sheet
         self.strict = strict
@@ -72,6 +72,8 @@ class ScatteredData(object):
             print 'They are: '
             for item in self.keys_to_search:
                 print '\'', item, '\''
+
+            print '\n'
         else:
 
             # all keys found

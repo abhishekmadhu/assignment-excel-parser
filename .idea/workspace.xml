@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="785de5c2-886d-4e05-add5-b892fc6d76b4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ToParse_Python.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/ToParse_Python.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/errors.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/listparser.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/listparser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/scattered_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/scattered_data.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +18,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="69" />
+            <state relative-caret-position="464">
+              <caret line="29" column="28" lean-forward="true" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -28,8 +30,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1377">
-              <caret line="56" column="46" selection-start-line="41" selection-start-column="8" selection-end-line="56" selection-end-column="46" />
+            <state relative-caret-position="99">
+              <caret line="31" column="45" lean-forward="true" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/models/scattered_data.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="72" column="16" selection-start-line="72" selection-start-column="16" selection-end-line="72" selection-end-column="16" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -38,12 +52,24 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/scattered_data.py">
+        <entry file="file://$PROJECT_DIR$/src/models/errors.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2025">
-              <caret line="81" column="42" selection-start-line="81" selection-start-column="29" selection-end-line="81" selection-end-column="42" />
+            <state relative-caret-position="189">
+              <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/models/listparser.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="761">
+              <caret line="140" column="92" selection-start-line="140" selection-start-column="92" selection-end-line="140" selection-end-column="92" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#0#29#0" expanded="true" />
+                <element signature="e#632#946#0" />
+                <element signature="e#1285#2017#0" />
+                <element signature="e#2181#2235#0" />
               </folding>
             </state>
           </provider>
@@ -52,22 +78,6 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/models/listparser.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="104" column="85" selection-start-line="104" selection-start-column="85" selection-end-line="104" selection-end-column="85" />
-              <folding>
-                <element signature="e#305#560#0" />
-                <element signature="e#632#946#0" />
-                <element signature="e#1004#1267#0" />
-                <element signature="e#1285#2017#0" />
-                <element signature="e#2181#2235#0" />
-              </folding>
-            </state>
-          </provider>
         </entry>
       </file>
     </leaf>
@@ -89,17 +99,17 @@
         <option value="$PROJECT_DIR$/src/models/get scattered_data.py" />
         <option value="$PROJECT_DIR$/src/models/get_scattered_data.py" />
         <option value="$PROJECT_DIR$/src/common/datacleaner.py" />
-        <option value="$PROJECT_DIR$/src/models/errors.py" />
         <option value="$PROJECT_DIR$/src/demo.py" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
         <option value="$PROJECT_DIR$/src/list_pd.py" />
         <option value="$PROJECT_DIR$/src/models/listparser2.py" />
         <option value="$PROJECT_DIR$/automate-login.py" />
-        <option value="$PROJECT_DIR$/src/models/scattered_data.py" />
         <option value="$PROJECT_DIR$/src/main.py" />
-        <option value="$PROJECT_DIR$/src/models/parser.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/src/models/errors.py" />
         <option value="$PROJECT_DIR$/src/models/listparser.py" />
+        <option value="$PROJECT_DIR$/src/models/parser.py" />
+        <option value="$PROJECT_DIR$/src/models/scattered_data.py" />
       </list>
     </option>
   </component>
@@ -121,6 +131,23 @@
             <path>
               <item name="assignment2" type="b2602c69:ProjectViewProjectNode" />
               <item name="assignment2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="assignment2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="assignment2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="assignment2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="assignment2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="assignment2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="assignment2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="assignment2" type="b2602c69:ProjectViewProjectNode" />
@@ -164,7 +191,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.parser">
     <configuration name="list_pd" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="assignment2" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -277,9 +304,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
         <item itemvalue="Python.parser" />
         <item itemvalue="Python.listparser2" />
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.scattered_data" />
         <item itemvalue="Python.list_pd" />
       </list>
@@ -298,19 +325,19 @@
       <workItem from="1554560548300" duration="30420000" />
       <workItem from="1554698454718" duration="3238000" />
       <workItem from="1554720713396" duration="920000" />
-      <workItem from="1554973692794" duration="1039000" />
+      <workItem from="1554973692794" duration="1951000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35617000" />
+    <option name="totallyTimeSpent" value="36529000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.15758547" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.15758547" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
       <window_info anchor="bottom" id="Terminal" order="1" />
@@ -320,7 +347,7 @@
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.32947367" />
-      <window_info anchor="bottom" id="Run" order="8" visible="true" weight="0.37025318" />
+      <window_info active="true" anchor="bottom" id="Run" order="8" visible="true" weight="0.37025318" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.39916405" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
@@ -364,9 +391,9 @@
     <SUITE FILE_PATH="coverage/assignment2$demo.coverage" NAME="demo Coverage Results" MODIFIED="1554575000286" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/assignment2$list_pd.coverage" NAME="list_pd Coverage Results" MODIFIED="1554610377292" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/assignment2$scattered_data.coverage" NAME="scattered_data Coverage Results" MODIFIED="1554973878770" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/models" />
-    <SUITE FILE_PATH="coverage/assignment2$parser.coverage" NAME="parser Coverage Results" MODIFIED="1554974635567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/models" />
+    <SUITE FILE_PATH="coverage/assignment2$parser.coverage" NAME="parser Coverage Results" MODIFIED="1554979108839" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/models" />
     <SUITE FILE_PATH="coverage/assignment2$listparser.coverage" NAME="listparser Coverage Results" MODIFIED="1554576056854" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/models" />
-    <SUITE FILE_PATH="coverage/assignment2$listparser2.coverage" NAME="listparser2 Coverage Results" MODIFIED="1554974580341" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/models" />
+    <SUITE FILE_PATH="coverage/assignment2$listparser2.coverage" NAME="listparser2 Coverage Results" MODIFIED="1554978879880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/models" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/venv/local/lib/python2.7/site-packages/xlrd/sheet.py">
@@ -402,57 +429,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/errors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/automate-login.py" />
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="69" />
+        <state relative-caret-position="464">
+          <caret line="29" column="28" lean-forward="true" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/errors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="56" column="46" selection-start-line="41" selection-start-column="8" selection-end-line="56" selection-end-column="46" />
+        <state relative-caret-position="99">
+          <caret line="31" column="45" lean-forward="true" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/listparser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="761">
+          <caret line="140" column="92" selection-start-line="140" selection-start-column="92" selection-end-line="140" selection-end-column="92" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#632#946#0" />
+            <element signature="e#1285#2017#0" />
+            <element signature="e#2181#2235#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/scattered_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2025">
-          <caret line="81" column="42" selection-start-line="81" selection-start-column="29" selection-end-line="81" selection-end-column="42" />
+        <state relative-caret-position="324">
+          <caret line="72" column="16" selection-start-line="72" selection-start-column="16" selection-end-line="72" selection-end-column="16" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/listparser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="104" column="85" selection-start-line="104" selection-start-column="85" selection-end-line="104" selection-end-column="85" />
-          <folding>
-            <element signature="e#305#560#0" />
-            <element signature="e#632#946#0" />
-            <element signature="e#1004#1267#0" />
-            <element signature="e#1285#2017#0" />
-            <element signature="e#2181#2235#0" />
           </folding>
         </state>
       </provider>
