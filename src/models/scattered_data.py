@@ -15,7 +15,6 @@ class ScatteredData(object):
         self.keys_to_search = keys_to_search
         self.scattered_dict = {}
 
-
     def get_scattered_data(self):
 
         sheet = self.sheet
@@ -25,6 +24,7 @@ class ScatteredData(object):
             for c in range(sheet.ncols):
                 key = sheet.cell(r,c)
                 # print key.value
+
                 if key.value in self.keys_to_search:
                     # print 'Key found: ', key
                     next_col = c+1
@@ -47,7 +47,8 @@ class ScatteredData(object):
 
                         # if strict mode is on
                         if self.strict:
-                            raise DataNotBesideLabelError('Data is not beside the label! Pass "strict=False" to ignore this')
+                            raise DataNotBesideLabelError('Data is not beside the label! '
+                                                          'Pass "strict=False" to ignore this')
 
 
 

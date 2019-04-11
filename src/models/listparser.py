@@ -65,7 +65,7 @@ class ListParser(object):
     def get_items_in_list(self):
         # initiate the column parsing procedure
 
-        MAX_COL = len(self.headers)
+        TOTAL_COL = len(self.headers)
         MAX_ROW = self.sheet.nrows
 
         # if self.start_row is None or self.start_col is None:
@@ -91,12 +91,12 @@ class ListParser(object):
 
         # iterate over all the data in the tabular part of the sheet
         # (row +1) as the first row is the header row
-        for r in range(row+1, self.sheet.nrows):
+        for r in range(row+1, MAX_ROW):
 
 
             eachitem = OrderedDict()
 
-            for c in range(0, col + MAX_COL):
+            for c in range(0, col + TOTAL_COL):
 
                 data = self.sheet.cell(r, c)
 
@@ -129,6 +129,7 @@ class ListParser(object):
             if len(eachitem) != 0:
                 items_list.append(eachitem)
 
+            # if c == col + TOTAL_COL
         return items_list
 
 
@@ -151,7 +152,8 @@ if __name__ == '__main__':
     # get all the headers available in the sheet
     found_headers = listparser.get_headers()
 
-    # found_headers should be ['LineNumber', 'PartNumber', 'Description', 'Item Type', 'Price']
+    # found_headers should be = ['LineNumber', 'PartNumber', 'Description', 'Item Type', 'Price']
+    # specifically for this problem statement
 
     # check if all the required headers have been found or not
     listparser.verify_headers(required_headers)
