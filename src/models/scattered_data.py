@@ -68,10 +68,10 @@ class ScatteredData(object):
 
     def are_all_keys_found(self):
         if len(self.keys_to_search) > 0:
-            print colored('WARNING: Required headers not found!', 'yellow')
+            print colored('WARNING: Required Labels not found!', 'yellow')
             print 'They are: '
-            for item in self.keys_to_search:
-                print '\'', item, '\''
+            for key in self.keys_to_search:
+                print '\'', key, '\''
 
             print '\n'
         else:

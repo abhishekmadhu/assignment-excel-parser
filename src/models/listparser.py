@@ -35,9 +35,10 @@ class ListParser(object):
     def verify_headers(self, required_headers):
         for rh in required_headers:
             if rh not in self.headers:
-                print rh, ' column has not been found in the list. ' \
-                          'Please consult the administrator if you think it is present in the list.'
-                print 'Did you spell it correctly (as in the sheet)?'
+                print rh, colored('<- column has not been found in the list. ' \
+                                  'Please consult the administrator if you think it is present '
+                                  'in the list.', color='red')
+                print 'Did you spell it correctly (as in the sheet)?\n'
 
                 if self.strict:
                     raise ListHeaderNotFoundError(rh + ' header not found!')
@@ -136,7 +137,10 @@ if __name__ == '__main__':
 
     workbook = xlrd.open_workbook('../../ToParse_Python.xlsx')
     sheet = workbook.sheet_by_index(0)      # getting the first sheet
+
+    # deliberately adding unavailable 'Name' field to test error handling
     required_headers = ['LineNumber', 'PartNumber', 'Description', 'Price', 'Name']
+
     # init a new listparser
     listparser = ListParser(workbook, sheet, required_headers=required_headers, strict=False)
 
@@ -146,7 +150,7 @@ if __name__ == '__main__':
     # get all the headers available in the sheet
     found_headers = listparser.get_headers()
 
-    # headers = ['LineNumber', 'PartNumber', 'Description', 'Item Type', 'Price']
+    # found_headers should be ['LineNumber', 'PartNumber', 'Description', 'Item Type', 'Price']
 
     # check if all the required headers have been found or not
     listparser.verify_headers(required_headers)

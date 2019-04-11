@@ -9,7 +9,7 @@ if __name__ == '__main__':
     # above the current file in this system
     path_to_file = '../ToParse_Python.xlsx'
 
-    # UNIT TEST (specifying the starting row of the list) , and
+    # Integration TEST (specifying the starting row of the list) , and
     # "strictness" of the parser as parameter 'strict'
     # [Ignore Empty Labels: False]
 

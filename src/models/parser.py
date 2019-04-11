@@ -70,13 +70,12 @@ if __name__ == '__main__':
     # unit test for the parser class
     # Please ignore
 
-    # the ToParse_python.xlsx is located one directory
-    # above the current file in this system
+    # path to ToParse_python.xlsx
     path_to_file = '../../ToParse_Python.xlsx'
 
-    # unit test (specifying the starting row of the list) , and
+    # unit test specifying
     # "strictness" of the parser as parameter 'strict'
-    # [Ignore Empty Labels: False]
+    # [Ignore Empty Labels and headers: False]
 
     keys_to_search = ['Quote Number', 'Date', 'Ship To', 'Ship From']
     required_headers = ['LineNumber', 'PartNumber', 'Description', 'Price']
