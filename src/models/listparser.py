@@ -35,6 +35,7 @@ class ListParser(object):
             if rh not in self.headers:
                 print rh, ' column has not been found in the list. ' \
                           'Please consult the administrator if you think it is present in the list.'
+                print 'Did you spell it correctly (as in the sheet)?'
 
     def get_start_row_col(self):
         for r in range(self.sheet.nrows):
@@ -84,11 +85,12 @@ class ListParser(object):
         # iterate over all the data in the tabular part of the sheet
         # (row +1) as the first row is the header row
         for r in range(row+1, self.sheet.nrows):
-            index = 0  # as the table is shifted those many columns to the right
+
 
             eachitem = OrderedDict()
 
-            for c in range(col, col + MAX_COL):
+            for c in range(0, col + MAX_COL):
+
                 data = self.sheet.cell(r, c)
 
                 # clean the data into proper format
@@ -100,23 +102,24 @@ class ListParser(object):
                     print '\nTen or more consecutive dashes found. Exiting!'
                     return items_list
 
-                # get the header for that column
-                c_header = headers[index]
+                if c >= col:            # implies that the cell is a part of the list
+                    index = c - col     # as the table is shifted those many columns to the right
 
-                if c_header in self.required_headers:
+                    # get the header for that column
+                    c_header = headers[index]
 
-                    # if the values are not empty, add them to the dictionary
-                    if val is not u'' and c_header is not u'':
-                        eachitem[c_header] = val
+                    if c_header in self.required_headers:
 
-                    else:
-                        print colored('Critical Error: ', 'red')
-                        print 'Empty value found at cell(', r, ',', c, ')! ' \
-                            'No entry for the', c_header, 'column!'
+                        # if the values are not empty, add them to the dictionary
+                        if val is not u'' and c_header is not u'':
+                            eachitem[c_header] = val
 
-                        pass
+                        else:
+                            print colored('Critical Error: ', 'red')
+                            print 'Empty value found at cell(', r, ',', c, ')! ' \
+                                'No entry for the', c_header, 'column!'
 
-                index = index + 1
+
             if len(eachitem) != 0:
                 items_list.append(eachitem)
 
